@@ -363,7 +363,7 @@ def abs(x: DecoratedInterval) -> DecoratedInterval:
 
   return DecoratedInterval(interval, dec)
 
-def atan2(y, x):
+def atan2(y: DecoratedInterval, x: DecoratedInterval) -> DecoratedInterval:
   y = DecoratedInterval._coerce(y)
   x = DecoratedInterval._coerce(x)
 
@@ -387,7 +387,7 @@ def atan2(y, x):
 
   return DecoratedInterval(interval, dec)
 
-def sqr(x):
+def sqr(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
 
   if x.is_nai:
@@ -402,7 +402,7 @@ def sqr(x):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def pow_interval(x, y):
+def pow_interval(x: DecoratedInterval, y: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   y = DecoratedInterval._coerce(y)
 
@@ -423,7 +423,7 @@ def pow_interval(x, y):
 
   return DecoratedInterval(interval, dec)
 
-def exp2(x):
+def exp2(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -434,7 +434,7 @@ def exp2(x):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def exp10(x):
+def exp10(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -445,7 +445,7 @@ def exp10(x):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def log2(x):
+def log2(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -461,7 +461,7 @@ def log2(x):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def log10(x):
+def log10(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
