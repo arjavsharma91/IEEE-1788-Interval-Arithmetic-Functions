@@ -35,13 +35,13 @@ def sqrt(x: Interval) -> Interval:
   lo = max(x.lo, mpfr(0))
   return Interval(sqrt_down(lo), sqrt_up(x.hi))
 
-def exp(x: Interval) -> Interval:
+def exp(x) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
   return Interval(exp_down(x.lo), exp_up(x.hi))
 
-def log(x: Interval) -> Interval:
+def log(x) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -55,7 +55,7 @@ def log(x: Interval) -> Interval:
   return Interval(lo, hi)
 
 
-def pow_int(x: Interval, n: int) -> Interval:
+def pow_int(x, n):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -102,7 +102,7 @@ def pow_int(x: Interval, n: int) -> Interval:
     hi = pow_up(x.hi, n_int) if x.hi >= 0 else -pow_down(builtins.abs(x.hi), n_int)
     return Interval(lo, hi)
 
-def sign(x: Interval) -> Interval:
+def sign(x) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -118,14 +118,14 @@ def sign(x: Interval) -> Interval:
     return Interval(Number(-1), Number(0))
   return Interval(Number(-1), Number(1))
 
-def interval_min(x: Interval, y: Interval) -> Interval:
+def interval_min(x, y) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   if x.is_empty or y.is_empty:
     return Interval.empty()
   return Interval(min(x.lo, y.lo), min(x.hi, y.hi))
 
-def interval_max(x: Interval, y: Interval) -> Interval:
+def interval_max(x, y) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   
@@ -133,7 +133,7 @@ def interval_max(x: Interval, y: Interval) -> Interval:
     return Interval.empty()
   return Interval(max(x.lo, y.lo), max(x.hi, y.hi))
   
-def nth_root(x: Interval, n: int) -> Interval:
+def nth_root(x, n) -> Interval:
   x = Interval._coerce(x)
   try:
     n_int = int(n)
@@ -169,7 +169,7 @@ def contains_periodic_point(x, offset, period, prec = 128):
     k_hi = (hi_mpfr - off_mpfr) / per_mpfr
 
     return ceil(k_lo) <= floor(k_hi)
-def sin(x: Interval) -> Interval:
+def sin(x) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -188,7 +188,7 @@ def sin(x: Interval) -> Interval:
     lo = mpfr(-1)
   return Interval(lo, hi)
 
-def cos(x: Interval) -> Interval:
+def cos(x) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -209,7 +209,7 @@ def cos(x: Interval) -> Interval:
     lo = mpfr(-1)
   return Interval(lo, hi)
   
-def tan(x: Interval) -> Interval:
+def tan(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -221,7 +221,7 @@ def tan(x: Interval) -> Interval:
   hi = tan_up(x.hi)
   return Interval(lo, hi)
 
-def asin(x: Interval) -> Interval:
+def asin(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -231,7 +231,7 @@ def asin(x: Interval) -> Interval:
     return Interval.empty()
   return Interval(asin_down(x.lo), asin_up(x.hi))
 
-def acos(x: Interval) -> Interval:
+def acos(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -240,7 +240,7 @@ def acos(x: Interval) -> Interval:
     return Interval.empty()
   return Interval(acos_down(x.hi), acos_up(x.lo))
 
-def atan(x: Interval) -> Interval:
+def atan(x):
   x = Interval._coerce(x)
 
   if x.is_empty:
@@ -251,19 +251,19 @@ def atan(x: Interval) -> Interval:
     atan_up(x.hi)
     )
 
-def sinh(x: Interval) -> Interval:
+def sinh(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
   return Interval(sinh_down(x.lo), sinh_up(x.hi))
 
-def tanh(x: Interval) -> Interval:
+def tanh(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
   return Interval(tanh_down(x.lo), tanh_up(x.hi))
 
-def cosh(x: Interval) -> Interval:
+def cosh(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -274,13 +274,13 @@ def cosh(x: Interval) -> Interval:
     return Interval(cosh_down(x.hi), cosh_up(x.lo))
   return Interval(mpfr(1), max(cosh_up(x.lo), cosh_up(x.hi)))
 
-def asinh(x: Interval) -> Interval:
+def asinh(x) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
   return Interval(asinh_down(x.lo), asinh_up(x.hi))
 
-def acosh(x: Interval) -> Interval:
+def acosh(x) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -291,7 +291,7 @@ def acosh(x: Interval) -> Interval:
   lo = max(x.lo, mpfr(1))
   return Interval(acosh_down(lo), acosh_up(x.hi))
 
-def atanh(x: Interval) -> Interval:
+def atanh(x) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -305,7 +305,7 @@ def atanh(x: Interval) -> Interval:
     
   return Interval(lo, hi)
 
-def abs(x: Interval) -> Interval:
+def abs(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -327,7 +327,7 @@ def safe_atan2_up(y, x):
   x_val = ZERO if is_zero(x) else x
   return atan2_up(y_val, x_val)
 
-def atan2(y: Interval, x: Interval) -> Interval:
+def atan2(y, x):
   y = Interval._coerce(y)
   x = Interval._coerce(x)
 
@@ -422,7 +422,7 @@ def atan2(y: Interval, x: Interval) -> Interval:
             
 
 
-def sqr(x: Interval) -> Interval::
+def sqr(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -437,7 +437,7 @@ def sqr(x: Interval) -> Interval::
   hi = max(sqr_up(builtins.abs(x.hi)), sqr_up(builtins.abs(x.lo)))
   return Interval(mpfr(0), hi)
 
-def pow_interval(x: Interval, y: Interval) -> Interval:
+def pow_interval(x, y):
     x = Interval._coerce(x)
     y = Interval._coerce(y)
 
@@ -503,7 +503,7 @@ def pow_interval(x: Interval, y: Interval) -> Interval:
 
     return Interval(min(v_down), max(v_up))
 
-def exp2(x: Interval) -> Interval::
+def exp2(x):
   x = Interval._coerce(x)
   
   if x.is_empty:
@@ -511,7 +511,7 @@ def exp2(x: Interval) -> Interval::
 
   return Interval(exp2_down(x.lo), exp2_up(x.hi))
 
-def exp10(x: Interval) -> Interval::
+def exp10(x):
   x = Interval._coerce(x)
   
   if x.is_empty:
@@ -519,7 +519,7 @@ def exp10(x: Interval) -> Interval::
 
   return Interval(exp10_down(x.lo), exp10_up(x.hi))
 
-def log2(x: Interval) -> Interval::
+def log2(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -532,7 +532,7 @@ def log2(x: Interval) -> Interval::
   hi = log2_up(x.hi)
   return Interval(lo, hi)
 
-def log10(x: Interval) -> Interval::
+def log10(x):
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -545,7 +545,7 @@ def log10(x: Interval) -> Interval::
   hi = log10_up(x.hi)
   return Interval(lo, hi)
 
-def interval_ceil(x: Interval) -> Interval::
+def interval_ceil(x):
   if x.is_empty:
     return Interval.empty()
   if x.lo == mpfr('-inf'):
@@ -558,7 +558,7 @@ def interval_ceil(x: Interval) -> Interval::
     hi = ceil(x.hi)
   return Interval(lo, hi)
 
-def interval_floor(x: Interval) -> Interval::
+def interval_floor(x):
   if x.is_empty:
     return Interval.empty()
   if x.lo == mpfr('-inf'):
@@ -571,7 +571,7 @@ def interval_floor(x: Interval) -> Interval::
     hi = floor(x.hi)
   return Interval(lo, hi)
 
-def interval_trunc(x: Interval) -> Interval::
+def interval_trunc(x):
   if x.is_empty:
     return Interval.empty()
   if x.lo == mpfr('-inf'):
