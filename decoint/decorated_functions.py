@@ -148,7 +148,7 @@ def nth_root(x: DecoratedInterval, n: int) -> DecoratedInterval:
 
   return DecoratedInterval(interval, dec)
 
-def sin(x):
+def sin(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -163,7 +163,7 @@ def sin(x):
   return DecoratedInterval(interval, dec)
 
 
-def cos(x):
+def cos(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -177,7 +177,7 @@ def cos(x):
 
   return DecoratedInterval(interval, dec)
 
-def tan(x):
+def tan(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -199,7 +199,7 @@ def tan(x):
 
   return DecoratedInterval(interval, dec)
 
-def asin(x):
+def asin(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -219,7 +219,7 @@ def asin(x):
 
   return DecoratedInterval(interval, dec)
 
-def acos(x):
+def acos(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -239,7 +239,7 @@ def acos(x):
 
   return DecoratedInterval(interval, dec)
 
-def atan(x):
+def atan(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
