@@ -8,7 +8,7 @@ ctx.precision = 53
 ctx.emin = -1073
 ctx.emax = 1024
 
-def add(x, y) -> Interval:
+def add(x: Interval, y: Interval) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   if x.is_empty or y.is_empty:
@@ -17,7 +17,7 @@ def add(x, y) -> Interval:
   hi = add_up(x.hi, y.hi)
   return Interval(lo, hi)
 
-def sub(x, y) -> Interval:
+def sub(x: Interval, y: Interval) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   if x.is_empty or y.is_empty:
@@ -26,7 +26,7 @@ def sub(x, y) -> Interval:
   hi = sub_up(x.hi, y.lo)
   return Interval(lo, hi)
 
-def mul(x, y) -> Interval:
+def mul(x: Interval, y: Interval) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   if x.is_empty or y.is_empty:
@@ -60,7 +60,7 @@ def mul(x, y) -> Interval:
 
   return Interval(lo, hi)
 
-def reciprocal(x) -> Interval:
+def reciprocal(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -75,7 +75,7 @@ def reciprocal(x) -> Interval:
 
   return Interval(div_down(mpfr(1), x.hi), div_up(mpfr(1), x.lo))
 
-def div(x, y) -> Interval:
+def div(x: Interval, y: Interval) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   if x.is_empty or y.is_empty:
@@ -153,7 +153,7 @@ def evaluate_fma_corner(x, y, z, round_up=False):
   return fma_up(x, y, z) if round_up else fma_down(x, y, z)
 
 
-def fma(x, y, z):
+def fma(x: Interval, y: Interval, z: Interval) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   z = Interval._coerce(z)
