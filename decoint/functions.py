@@ -35,13 +35,13 @@ def sqrt(x: Interval) -> Interval:
   lo = max(x.lo, mpfr(0))
   return Interval(sqrt_down(lo), sqrt_up(x.hi))
 
-def exp(x) -> Interval:
+def exp(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
   return Interval(exp_down(x.lo), exp_up(x.hi))
 
-def log(x) -> Interval:
+def log(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -55,7 +55,7 @@ def log(x) -> Interval:
   return Interval(lo, hi)
 
 
-def pow_int(x, n):
+def pow_int(x: Interval, n) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -102,7 +102,7 @@ def pow_int(x, n):
     hi = pow_up(x.hi, n_int) if x.hi >= 0 else -pow_down(builtins.abs(x.hi), n_int)
     return Interval(lo, hi)
 
-def sign(x) -> Interval:
+def sign(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
