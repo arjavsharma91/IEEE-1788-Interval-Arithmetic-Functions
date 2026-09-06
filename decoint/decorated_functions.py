@@ -477,7 +477,7 @@ def log10(x: DecoratedInterval) -> DecoratedInterval:
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def interval_ceil(x):
+def interval_ceil(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -500,7 +500,7 @@ def interval_ceil(x):
 
   return DecoratedInterval(res_interval, dec)
 
-def interval_floor(x):
+def interval_floor(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -525,7 +525,7 @@ def interval_floor(x):
 
   return DecoratedInterval(res_interval, dec)
 
-def interval_trunc(x):
+def interval_trunc(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
