@@ -118,14 +118,14 @@ def sign(x: Interval) -> Interval:
     return Interval(Number(-1), Number(0))
   return Interval(Number(-1), Number(1))
 
-def interval_min(x, y) -> Interval:
+def interval_min(x: Interval, y: Interval) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   if x.is_empty or y.is_empty:
     return Interval.empty()
   return Interval(min(x.lo, y.lo), min(x.hi, y.hi))
 
-def interval_max(x, y) -> Interval:
+def interval_max(x: Interval, y: Interval) -> Interval:
   x = Interval._coerce(x)
   y = Interval._coerce(y)
   
@@ -133,7 +133,7 @@ def interval_max(x, y) -> Interval:
     return Interval.empty()
   return Interval(max(x.lo, y.lo), max(x.hi, y.hi))
   
-def nth_root(x, n) -> Interval:
+def nth_root(x: Interval, n: int) -> Interval:
   x = Interval._coerce(x)
   try:
     n_int = int(n)
