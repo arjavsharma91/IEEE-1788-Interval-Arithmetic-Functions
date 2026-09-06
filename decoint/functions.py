@@ -169,7 +169,8 @@ def contains_periodic_point(x, offset, period, prec = 128):
     k_hi = (hi_mpfr - off_mpfr) / per_mpfr
 
     return ceil(k_lo) <= floor(k_hi)
-def sin(x) -> Interval:
+
+def sin(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -188,7 +189,7 @@ def sin(x) -> Interval:
     lo = mpfr(-1)
   return Interval(lo, hi)
 
-def cos(x) -> Interval:
+def cos(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -209,7 +210,7 @@ def cos(x) -> Interval:
     lo = mpfr(-1)
   return Interval(lo, hi)
   
-def tan(x):
+def tan(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -221,7 +222,7 @@ def tan(x):
   hi = tan_up(x.hi)
   return Interval(lo, hi)
 
-def asin(x):
+def asin(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -231,7 +232,7 @@ def asin(x):
     return Interval.empty()
   return Interval(asin_down(x.lo), asin_up(x.hi))
 
-def acos(x):
+def acos(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -240,7 +241,7 @@ def acos(x):
     return Interval.empty()
   return Interval(acos_down(x.hi), acos_up(x.lo))
 
-def atan(x):
+def atan(x: Interval) -> Interval:
   x = Interval._coerce(x)
 
   if x.is_empty:
