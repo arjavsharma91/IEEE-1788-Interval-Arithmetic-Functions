@@ -546,7 +546,7 @@ def log10(x: Interval) -> Interval:
   hi = log10_up(x.hi)
   return Interval(lo, hi)
 
-def interval_ceil(x):
+def interval_ceil(x: Interval) -> Interval:
   if x.is_empty:
     return Interval.empty()
   if x.lo == mpfr('-inf'):
@@ -559,7 +559,7 @@ def interval_ceil(x):
     hi = ceil(x.hi)
   return Interval(lo, hi)
 
-def interval_floor(x):
+def interval_floor(x: Interval) -> Interval:
   if x.is_empty:
     return Interval.empty()
   if x.lo == mpfr('-inf'):
@@ -572,7 +572,7 @@ def interval_floor(x):
     hi = floor(x.hi)
   return Interval(lo, hi)
 
-def interval_trunc(x):
+def interval_trunc(x: Interval) -> Interval:
   if x.is_empty:
     return Interval.empty()
   if x.lo == mpfr('-inf'):
