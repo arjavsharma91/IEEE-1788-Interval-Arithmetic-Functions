@@ -119,7 +119,7 @@ def interval_max(x: DecoratedInterval, y: DecoratedInterval) -> DecoratedInterva
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def nth_root(x: DecoratedInterval, n: int) DecoratedInterval:
+def nth_root(x: DecoratedInterval, n: int) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   try:
     n_int = int(n)
