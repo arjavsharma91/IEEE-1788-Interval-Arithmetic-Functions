@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "decoint"
-version = "0.1.0"
+version = "1.0.1"
 readme = "README.md"
 requires-python = ">=3.8"
 description = "An IEEE 1788-2015 compliant interval arithmetic library"
