@@ -253,7 +253,7 @@ def atan(x: DecoratedInterval) -> DecoratedInterval:
 
   return DecoratedInterval(interval, dec)
 
-def sinh(x):
+def sinh(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -267,7 +267,7 @@ def sinh(x):
 
   return DecoratedInterval(interval, dec)
 
-def cosh(x):
+def cosh(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -281,7 +281,7 @@ def cosh(x):
 
   return DecoratedInterval(interval, dec)
 
-def tanh(x):
+def tanh(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -295,7 +295,7 @@ def tanh(x):
 
   return DecoratedInterval(interval, dec)
   
-def asinh(x):
+def asinh(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -309,7 +309,7 @@ def asinh(x):
 
   return DecoratedInterval(interval, dec)
 
-def acosh(x):
+def acosh(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -328,7 +328,7 @@ def acosh(x):
 
   return DecoratedInterval(interval, dec)
 
-def atanh(x):
+def atanh(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -349,7 +349,7 @@ def atanh(x):
   return DecoratedInterval(interval, dec)
 
 
-def abs(x):
+def abs(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
