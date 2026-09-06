@@ -8,7 +8,7 @@ def _finalize_decoration(base_dec: Decoration, interval: Interval) -> Decoration
     return Decoration.DAC
   return base_dec
 
-def add(x, y):
+def add(x: DecoratedInterval, y: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   y = DecoratedInterval._coerce(y)
 
@@ -21,7 +21,7 @@ def add(x, y):
 
   return DecoratedInterval(interval, dec)
 
-def sub(x, y):
+def sub(x: DecoratedInterval, y: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   y = DecoratedInterval._coerce(y)
 
@@ -34,7 +34,7 @@ def sub(x, y):
 
   return DecoratedInterval(interval, dec)
 
-def mul(x, y):
+def mul(x: DecoratedInterval, y: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   y = DecoratedInterval._coerce(y)
 
@@ -47,7 +47,7 @@ def mul(x, y):
 
   return DecoratedInterval(interval, dec)
 
-def reciprocal(x):
+def reciprocal(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -61,7 +61,7 @@ def reciprocal(x):
   dec = _finalize_decoration(dec, interval)
   return DecoratedInterval(interval, dec)
 
-def div(x, y):
+def div(x: DecoratedInterval, y: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   y = DecoratedInterval._coerce(y)
 
@@ -82,7 +82,7 @@ def div(x, y):
 
   return DecoratedInterval(interval, dec)
 
-def fma(x, y, z):
+def fma(x: DecoratedInterval, y: DecoratedInterval, z: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   y = DecoratedInterval._coerce(y)
   z = DecoratedInterval._coerce(z)
