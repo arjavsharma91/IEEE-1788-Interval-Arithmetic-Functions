@@ -1,20 +1,20 @@
-# Contributing to Your Library Name
+# Contributing to decoint
 
 Thank you for your interest in contributing! We welcome bug reports, feature requests, documentation improvements, and pull requests from the community.
 
-Because this library implements the **IEEE 1788.1-2017 Standard for Interval Arithmetic**, maintaining strict standards compliance, mathematical correctness, and test suite integrity is our top priority.
+Because this library implements the **IEEE 1788.1-2017 Standard for Interval Arithmetic**, maintaining strict standards compliance and test suite integrity is our top priority.
 
 ---
 
 ## Code of Conduct
 
-Please maintain a welcoming, respectful, and constructive environment in all issues, discussions, and pull requests.
+Please maintain a respectful and constructive environment in all issues and pull requests.
 
 ---
 
 ## How to Report Bugs or Spec Non-Conformance
 
-If you identify a bug, a calculation error, or a deviation from IEEE 1788.1-2017:
+If you identify a bug or a deviation from the IEEE 1788.1-2017 standard:
 
 1. **Search existing issues** to see if the problem has already been reported.
 2. If not, **open a new issue** with:
@@ -29,8 +29,8 @@ If you identify a bug, a calculation error, or a deviation from IEEE 1788.1-2017
 
 1. **Fork and clone the repository:**
    ```bash
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-   cd your-repo-name
+   git clone [https://github.com/arjavsharma91/decoint-IEEE-1788.1-2017.git](https://github.com/arjavsharma91/decoint-IEEE-1788.1-2017.git)
+   cd decoint-IEEE-1788.1-2017
    ```
 
 2. **Create and activate a virtual environment:**
@@ -58,7 +58,7 @@ python -m pytest
 ```
 
 If you add a new feature or fix a bug:
-- Add corresponding unit tests under `tests/`.
+- Add corresponding unit tests under `testing/`.
 - Ensure no existing ITF1788 compliance tests break or are skipped without justification.
 
 ---
