@@ -89,7 +89,7 @@ def sign(x: DecoratedInterval) -> DecoratedInterval:
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def interval_min(x, y):
+def interval_min(x: DecoratedInterval, y: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   y = DecoratedInterval._coerce(y)
 
@@ -104,7 +104,7 @@ def interval_min(x, y):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def interval_max(x, y):
+def interval_max(x: DecoratedInterval, y: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   y = DecoratedInterval._coerce(y)
 
@@ -119,7 +119,7 @@ def interval_max(x, y):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def nth_root(x, n):
+def nth_root(x: DecoratedInterval, n: int) DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   try:
     n_int = int(n)
