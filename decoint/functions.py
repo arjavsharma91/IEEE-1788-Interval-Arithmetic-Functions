@@ -252,19 +252,19 @@ def atan(x: Interval) -> Interval:
     atan_up(x.hi)
     )
 
-def sinh(x):
+def sinh(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
   return Interval(sinh_down(x.lo), sinh_up(x.hi))
 
-def tanh(x):
+def tanh(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
   return Interval(tanh_down(x.lo), tanh_up(x.hi))
 
-def cosh(x):
+def cosh(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -275,13 +275,13 @@ def cosh(x):
     return Interval(cosh_down(x.hi), cosh_up(x.lo))
   return Interval(mpfr(1), max(cosh_up(x.lo), cosh_up(x.hi)))
 
-def asinh(x) -> Interval:
+def asinh(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
   return Interval(asinh_down(x.lo), asinh_up(x.hi))
 
-def acosh(x) -> Interval:
+def acosh(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -292,7 +292,7 @@ def acosh(x) -> Interval:
   lo = max(x.lo, mpfr(1))
   return Interval(acosh_down(lo), acosh_up(x.hi))
 
-def atanh(x) -> Interval:
+def atanh(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -306,7 +306,7 @@ def atanh(x) -> Interval:
     
   return Interval(lo, hi)
 
-def abs(x):
+def abs(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -328,7 +328,7 @@ def safe_atan2_up(y, x):
   x_val = ZERO if is_zero(x) else x
   return atan2_up(y_val, x_val)
 
-def atan2(y, x):
+def atan2(y: Interval, x: Interval) -> Interval:
   y = Interval._coerce(y)
   x = Interval._coerce(x)
 
