@@ -423,7 +423,7 @@ def atan2(y: Interval, x: Interval) -> Interval:
             
 
 
-def sqr(x):
+def sqr(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -438,7 +438,7 @@ def sqr(x):
   hi = max(sqr_up(builtins.abs(x.hi)), sqr_up(builtins.abs(x.lo)))
   return Interval(mpfr(0), hi)
 
-def pow_interval(x, y):
+def pow_interval(x: Interval, y: Interval) -> Interval:
     x = Interval._coerce(x)
     y = Interval._coerce(y)
 
@@ -504,7 +504,7 @@ def pow_interval(x, y):
 
     return Interval(min(v_down), max(v_up))
 
-def exp2(x):
+def exp2(x: Interval) -> Interval:
   x = Interval._coerce(x)
   
   if x.is_empty:
@@ -512,7 +512,7 @@ def exp2(x):
 
   return Interval(exp2_down(x.lo), exp2_up(x.hi))
 
-def exp10(x):
+def exp10(x: Interval) -> Interval:
   x = Interval._coerce(x)
   
   if x.is_empty:
@@ -520,7 +520,7 @@ def exp10(x):
 
   return Interval(exp10_down(x.lo), exp10_up(x.hi))
 
-def log2(x):
+def log2(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
@@ -533,7 +533,7 @@ def log2(x):
   hi = log2_up(x.hi)
   return Interval(lo, hi)
 
-def log10(x):
+def log10(x: Interval) -> Interval:
   x = Interval._coerce(x)
   if x.is_empty:
     return Interval.empty()
