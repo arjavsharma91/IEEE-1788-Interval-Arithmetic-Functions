@@ -5,7 +5,7 @@ from .constants import PI, HALF_PI, TWO_PI
 from .interval import Interval
 from gmpy2 import mpfr, is_integer, is_infinite, floor, ceil, trunc
 
-def exp(x):
+def exp(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -16,7 +16,7 @@ def exp(x):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def sqrt(x):
+def sqrt(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -34,7 +34,7 @@ def sqrt(x):
 
   return DecoratedInterval(interval, dec)
 
-def log(x):
+def log(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
@@ -50,7 +50,7 @@ def log(x):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def pow_int(x, n):
+def pow_int(x: DecoratedInterval, n: int) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   try:
     n_int = int(n)
@@ -73,7 +73,7 @@ def pow_int(x, n):
     dec = Decoration.DAC
   return DecoratedInterval(interval, dec)
 
-def sign(x):
+def sign(x: DecoratedInterval) -> DecoratedInterval:
   x = DecoratedInterval._coerce(x)
   if x.is_nai:
     return DecoratedInterval.new_nai()
