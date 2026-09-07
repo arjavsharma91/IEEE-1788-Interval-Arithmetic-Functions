@@ -25,7 +25,7 @@ The library uses the IEEE 1788 decoration system, containing 5 decorations, to p
 
 # Statement of Need
 
-In scientific computing, IEEE 754 binary64 floating point arithmetic introduces reliability limitations, primarily rounding errors due to the inability to represent fractions whose denominators are not a power of 2. Often, these errors are irrelevant in minor calculations, however they tend to accumulate exponentially over iterative algorithms and matrix operations. This numerical drift can compromise the reliability of scientific computations and safety critical systems.
+In scientific computing, IEEE 754 binary64 floating point arithmetic introduces reliability limitations, primarily rounding errors due to the inability to represent fractions whose denominators are not a power of 2. Often, these errors are irrelevant in minor calculations, however they tend to accumulate exponentially over iterative algorithms and matrix operations. This numerical drift can compromise the reliability of scientific computations and safety critical systems, such as Aerospace and Aviation, Control Systems, and Number Theory.
 
 Researchers are often forced to use arithmetic while suffering through floating point error propagation throughout calculations. Interval Arithmetic solves this problem by replacing scalar values with set based calculations. However, basic interval implementations often restrict their evaluation entirely to the lower and upper bounds, neglecting to monitor the underlying domain boundaries and continuity of functions over non-continuous execution spaces.
 
