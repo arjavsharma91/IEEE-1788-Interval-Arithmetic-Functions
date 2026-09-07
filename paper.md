@@ -49,7 +49,7 @@ The pipeline for interval computations flows through a three tier hierarchy:
 
 # Research Impact Statement
 
-`decoint` provides immediate utility to numerical analysis and validation by enabling reproducible, error-bounded calculations directly within standard Python research scripts. By exposing clear community-readiness signals, including comprehensive unit testing against IEEE-defined edge cases and structural execution tracking, the package offers a baseline tool for verifying the stability of loss functions, chaotic differential equations, and global minimization routines in academic environments.
+`decoint` provides immediate value to researchers by providing reliable guarenteed containment and the elimination of floating point rounding errors, as well as reliable error state tracking. With extensive ITF1788 edge case testing, it provides a reliable tool for verifying numerical stability across scientific computing and research.
 
 # AI Usage Disclosure
 
